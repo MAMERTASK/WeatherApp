@@ -14,6 +14,12 @@
 <body>
     <!-- main box -->
     <div class="main" id="main">
+        <!--  temp unit selection -->
+        <label for="units">Select units:</label>
+        <select id="units" onchange="updateUnits()">
+            <option value="metric">Celsius</option>
+            <option value="imperial">Fahrenheit</option>
+        </select>
         <!-- search box and button -->
         <div class="city_name">
             <input id="city_name" placeholder=" Search for a city">
