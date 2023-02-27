@@ -1,4 +1,4 @@
-var units = 'metric'; //metric by default unless user selects F - maybe implement later
+var units = 'metric';
 
 function city_search() {
     var city_name = document.getElementById("city_name").value;
@@ -18,9 +18,10 @@ function city_search() {
             const temperature = weatherData.main.temp;
 
             if (units == 'metric') {
-                document.getElementById("temperature").innerHTML = `${temperature} ℃`;
+                document.getElementById("temperature").innerHTML = `${temperature} &deg;C`;
             } else {
-                document.getElementById("temperature").innerHTML = `${temperature} ℉`;
+                var temperatureF = (weatherData.main.temp * 1.8 + 32).toFixed(1);
+                document.getElementById("temperature").innerHTML = `${temperatureF} &deg;F`;
             }
 
             document.getElementById("city").innerHTML = city_name.charAt(0).toUpperCase() + city_name.slice(1);
@@ -30,6 +31,10 @@ function city_search() {
         .catch(error => console.log(error))
 }
 
+function updateUnits() {
+    units = document.getElementById("units").value;
+    city_search();
+}
 
 document.getElementById("search_btn").addEventListener('click', () => {
     //clear existing data

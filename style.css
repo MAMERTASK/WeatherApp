@@ -33,8 +33,12 @@ p {
     border-radius: 0 5px 5px 0;
 }
 
+#city_name {
+    margin-top: 25px;
+}
+
 #city {
-    font-size: 52px;
+    font-size: 46px;
     margin-bottom: 0px;
 }
 
