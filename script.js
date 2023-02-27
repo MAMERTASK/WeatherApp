@@ -1,38 +1,45 @@
-var units = 'metric'; //user selection
+var units = 'metric'; //metric by default unless user selects F - maybe implement later
 
-function city_search() { //why have a function - rewrite
+function city_search() {
     var city_name = document.getElementById("city_name").value;
 
-    if (!city_name || city_name.length === 0) {
+    if (!city_name) {
         console.log('Please enter a city name');
-    } else {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=f80a9e50afaa2c36d775ad54e6cc5025&units=${units}`)
-            .then(response => {
-                return response.json();
-            }) //prettier .then(response => response.json())
-            .then(temperature => {
-                if (units == 'metric') {
-                    document.getElementById("temperature").innerHTML += temperature.main.temp + ' ℃';
-                    document.getElementById("city").innerHTML += city_name;
-                } else {
-                    document.getElementById("temperature").innerHTML = temperature.main.temp + ' ℉';
-                }
-            })
-            .catch(error => console.log(error))
+        return;
     }
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=f80a9e50afaa2c36d775ad54e6cc5025&units=${units}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(weatherData => {
+
+            const weatherIcon = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
+            const weatherDescription = weatherData.weather[0].description;
+            const temperature = weatherData.main.temp;
+
+            if (units == 'metric') {
+                document.getElementById("temperature").innerHTML = `${temperature} ℃`;
+            } else {
+                document.getElementById("temperature").innerHTML = `${temperature} ℉`;
+            }
+
+            document.getElementById("city").innerHTML = city_name.charAt(0).toUpperCase() + city_name.slice(1);
+            document.getElementById("icon").innerHTML = `<img src="${weatherIcon}">`;
+            document.getElementById("description").innerHTML = weatherDescription;
+        })
+        .catch(error => console.log(error))
 }
 
-//unnecessary complexity - remove
-//document.getElementById("weather_window").style.visibility = "hidden";
 
-document.getElementById("search").addEventListener('click', () => {
-    city_search(); //what happens when search is clicked multiple times - fix
-    //document.getElementById("main").style.visibility = "collapse";
-    //document.getElementById("weather_window").style.visibility = "visible";
+document.getElementById("search_btn").addEventListener('click', () => {
+    //clear existing data
+    document.getElementById("temperature").innerHTML = "";
+    document.getElementById("city").innerHTML = "";
+    document.getElementById("icon").innerHTML = "";
+    document.getElementById("description").innerHTML = "";
+
+    city_search();
 });
-
-// const weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-// weatherIconElement.innerHTML = `<img src="${weatherIcon}" alt="${weatherDescription}">`;
 
 
 
