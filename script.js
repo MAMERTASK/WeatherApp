@@ -16,12 +16,22 @@ function city_search() {
             const weatherIcon = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
             const weatherDescription = weatherData.weather[0].description;
             const temperature = weatherData.main.temp;
+            const weatherCode = weatherData.weather[0].id;
+
+            if (weatherCode >= 200 && weatherCode < 600) {
+                document.body.className = "rainy";
+            } else if (weatherCode >= 600 && weatherCode < 700) {
+                document.body.className = "snowy";
+            } else if (weatherCode == 800 || weatherCode == 801) {
+                document.body.className = "sunny";
+            } else {
+                document.body.className = "cloudy";
+            }
 
             if (units == 'metric') {
-                document.getElementById("temperature").innerHTML = `${temperature} &deg;C`;
+                document.getElementById("temperature").innerHTML = `${temperature.toFixed(1)} &deg;C`;
             } else {
-                var temperatureF = (weatherData.main.temp * 1.8 + 32).toFixed(1);
-                document.getElementById("temperature").innerHTML = `${temperatureF} &deg;F`;
+                document.getElementById("temperature").innerHTML = `${temperature.toFixed(1)} &deg;F`;
             }
 
             document.getElementById("city").innerHTML = city_name.charAt(0).toUpperCase() + city_name.slice(1);
