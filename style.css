@@ -1,7 +1,31 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
-    background: linear-gradient(180deg, #eaeaf1, #f2fd89);
+    background: linear-gradient(180deg, #eaeaf1, #73ba75aa);
+}
+
+body.cloudy {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #757575);
+}
+
+body.sunny {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #f3f77d);
+}
+
+body.snowy {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #91c6ff);
+}
+
+body.rainy {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #48496f);
 }
 
 p {
