@@ -1,0 +1,24 @@
+body {
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #73ba75aa);
+}
+
+body.cloudy {
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #afafaf);
+}
+
+body.sunny {
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #f4f794a8);
+}
+
+body.snowy {
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #91c6ff);
+}
+
+body.rainy {
+    height: 100vh;
+    background: linear-gradient(180deg, #eaeaf1, #b1b3e2);
+}
