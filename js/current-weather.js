@@ -1,7 +1,7 @@
 var units = "metric";
 var cityName = "";
 
-function city_search() {
+function citySearch() {
 
     storeInput();
 
@@ -49,5 +49,5 @@ document.getElementById("search-button").addEventListener('click', () => {
     document.getElementById("icon").innerHTML = "";
     document.getElementById("description").innerHTML = "";
 
-    city_search();
+    citySearch();
 });
