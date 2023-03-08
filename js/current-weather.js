@@ -41,13 +41,3 @@ function citySearch() {
         })
         .catch(error => console.log(error))
 }
-
-document.getElementById("search-button").addEventListener('click', () => {
-
-    document.getElementById("temperature").innerHTML = "";
-    document.getElementById("city").innerHTML = "";
-    document.getElementById("icon").innerHTML = "";
-    document.getElementById("description").innerHTML = "";
-
-    citySearch();
-});

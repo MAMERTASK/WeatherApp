@@ -20,11 +20,13 @@
             <option value="metric">Celsius</option>
             <option value="imperial">Fahrenheit</option>
         </select>
-        <div class="input-group mt-0">
-            <input type="text" class="form-control mt-1" id="city-name" placeholder="Search for a city...">
-        </div>
-        <div>
-            <button class="btn btn-primary mt-2" type="button" id="search-button">Search</button>
+        <div class="search-input-button" id="search-input-button">
+            <div class="input-group mt-0">
+                <input type="text" class="form-control mt-1" id="city-name" placeholder="Search for a city...">
+            </div>
+            <div>
+                <button class="btn btn-primary mt-2" type="button" id="search-button">Search</button>
+            </div>
         </div>
         <div class="weather_window" id="weather_window">
             <div id="flex">
@@ -39,6 +41,8 @@
     <script type="text/javascript" src="js/current-weather.js"></script>
     <script type="text/javascript" src="js/temperature-units.js"></script>
     <script type="text/javascript" src="js/store-input.js"></script>
+    <script type="text/javascript" src="js/handle-click.js"></script>
+    <script type="text/javascript" src="js/handle-press.js"></script>
 </body>
 
 </html>
